@@ -15,6 +15,13 @@ namespace StudentMgmtEntity.Services
             _mapper = mapper;
         }
 
+        public async Task<IEnumerable<StudentResponse>> GetSearch(string searchword)
+        {
+            var search = _context.Students.Where(s => s.Name.StartsWith(searchword));
+            var searchMap = _mapper.Map<IEnumerable<StudentResponse>>(search);
+            if (search == null) return null;
+            return searchMap;
+        }
         public async Task<Student> AddStudent(StudentDto request)
         {
             if(await _context.Students.AnyAsync(s => s.Email == request.Email))

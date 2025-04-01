@@ -9,5 +9,6 @@ namespace StudentMgmtEntity.Services
         public Task<Student> AddStudent(StudentDto request);
         public Task<Student> UpdateStudent(int id, StudentDto request);
         public Task<Student> DeleteStudent(int id);
+        public Task<IEnumerable<StudentResponse>> GetSearch(string searchword);
     }
 }

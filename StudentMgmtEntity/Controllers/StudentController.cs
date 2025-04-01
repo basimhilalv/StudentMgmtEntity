@@ -14,6 +14,14 @@ namespace StudentMgmtEntity.Controllers
         {
             _studentServices = studentServices;
         }
+        [HttpGet("Search")]
+        public async Task<ActionResult<IEnumerable<StudentResponse>>> GetSearch(string word)
+        {
+            var search = await _studentServices.GetSearch(word);
+            if (search == null) return NotFound();
+            return Ok(search);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudent(int id)
         {

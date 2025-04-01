@@ -11,6 +11,8 @@ namespace StudentMgmtEntity.Mappings
             CreateMap<StudentDto, Student>();
             CreateMap<Course, CourseDto>();
             CreateMap<CourseDto, Course>();
+            CreateMap<Student, StudentResponse>();
+            CreateMap<StudentResponse, Student>();
         }
 
     }
