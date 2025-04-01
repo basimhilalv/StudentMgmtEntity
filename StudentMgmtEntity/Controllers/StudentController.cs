@@ -44,7 +44,17 @@ namespace StudentMgmtEntity.Controllers
         [HttpPut("Update")]
         public async Task<ActionResult> UpdateStudent(int id, StudentDto request)
         {
-            var updated = await 
+            var updated = await _studentServices.UpdateStudent(id, request);
+            if (updated == null) return BadRequest();
+            return NoContent();
+        }
+
+        [HttpDelete("Delete")]
+        public async Task<ActionResult> DeleteStudent(int id)
+        {
+            var deleted = await _studentServices.DeleteStudent(id);
+            if (deleted == null) return BadRequest();
+            return NoContent();
         }
     }
 }

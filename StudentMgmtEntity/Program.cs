@@ -19,6 +19,7 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
 builder.Services.AddAutoMapper(typeof(StudentProfile));
 
 builder.Services.AddScoped<IStudentServices, StudentServices>();
+builder.Services.AddScoped<ICourseServices, CourseServices>();
 
 var app = builder.Build();
 

@@ -62,6 +62,8 @@ namespace StudentMgmtEntity.Services
             student.Email = request.Email;
             student.Password = request.Password;
 
+            await _context.SaveChangesAsync();
+
             return student;
 
         }
